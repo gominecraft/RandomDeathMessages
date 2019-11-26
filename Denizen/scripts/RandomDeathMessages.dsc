@@ -90,28 +90,28 @@ RandomDeathMessages:
 
       # Did we get hit by an arrow?
       - if <context.cause> == PROJECTILE:
-        - determine <yaml[rdm_pvp].read[RANGED].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parse_color>
+        - determine <yaml[rdm_pvp].read[RANGED].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
 
       # Melee, empty hand
       - if <[weapon]> == "nothing":
-        - determine <yaml[rdm_pvp].read[FISTS].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parse_color>
+        - determine <yaml[rdm_pvp].read[FISTS].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
 
       # Melee, something in-hand.
-      - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parse_color>
+      - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
     # End PVP
 
     # Begin MythicMobs
     - if <server.list_plugins.contains_text[Depenizen]>:
       - if <context.damager.is_mythicmob>:
-        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<player.name>].parse_color>
+        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<player.name>].parsed>
     # End MythicMobs
 
     # Begin MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type> == SKELETON:
-      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.replace[!player].with[<player.name>].parse_color>
+      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.replace[!player].with[<player.name>].parsed>
     # End MC Mobs
 
     # Begin Environment - this needs work..
     - if <context.cause> != ENTITY_ATTACK:
-      - determine <yaml[rdm_env].read[<context.cause>].random.replace[!player].with[<player.name>].parse_color>
+      - determine <yaml[rdm_env].read[<context.cause>].random.replace[!player].with[<player.name>].parsed>
     # End Environment
