@@ -1,1 +1,12 @@
-# pvp.yml
+# Placeholders used in here:
+# !player
+# !killer
+# !weapon - What the killer was holding, if not empty handed
+
+# When killed by someone with no weapons.
+FISTS:
+
+WEAPON:
+
+# When killed with a bow.
+RANGED:

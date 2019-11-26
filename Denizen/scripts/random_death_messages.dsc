@@ -47,13 +47,13 @@ RandomDeathMessages:
       - define weapon:<context.damager.item_in_hand.formatted>
       # Did we get hit by an arrow?
       - if <context.cause> == PROJECTILE:
-        - determine <yaml[rdm_pvp].list_keys[projectile].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].parsed>
+        - determine <yaml[rdm_pvp].list_keys[RANGED].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].parsed>
 
       # Melee, empty hand
       - if <[weapon]> == "nothing":
-        - determine <yaml[rdm_pvp].list_keys[fists].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>]>
+        - determine <yaml[rdm_pvp].list_keys[FISTS].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>]>
       # Melee, something in-hand.
-      - determine <yaml[rdm_pvp].list_keys[weapon].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
+      - determine <yaml[rdm_pvp].list_keys[WEAPON].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
     # End PVP
 
     # MythicMobs, check this first

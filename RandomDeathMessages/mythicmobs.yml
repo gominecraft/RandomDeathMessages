@@ -1,1 +1,13 @@
-# mythicmobs.yml
+#
+# Placeholders used in here:
+# !player
+#
+
+AngrySludge:
+  - "<green>!player <yellow>was slimed by an <red>Angry Sludge<yellow>."
+SkeletalKnight:
+  - "<green>!player <yellow>had an unfortunate encounter with a <red>Skeletal Knight<yellow>."
+SkeletonKing:
+  - "<green>!player <yellow>was slain by the mighty <red>Skeleton King<yellow>!"
+SkeletalMinion:
+  - "<green>!player <yellow>was killed by the <red>Skeleton King<yellow>'s <gold>Skeletal Minion<yellow>.'"
