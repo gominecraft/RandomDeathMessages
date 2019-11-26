@@ -18,8 +18,7 @@ rdm_config:
   enable_pvp: true
   enable_mobs: true
   enable_environment: true
-  enable_mythicmobs: false
-  enable_debug_message: false
+  enable_mythicmobs: true
   # End config
 
 # ---- Don't edit below here unless you know what you're doing.
@@ -27,8 +26,9 @@ rdm_config:
 
 rdm_init:
   type: task
-  debug: false
+  debug: true
   script:
+  - define missing_file:false
   # Load our files..
   - if <server.has_file[../RandomDeathMessages/mobs.yml]>:
     - ~yaml load:../RandomDeathMessages/mobs.yml id:rdm_mobs
@@ -60,9 +60,11 @@ rdm_init:
 
 RandomDeathMessages:
   type: world
-  debug: false
+  debug: true
   events:
     on player death:
+    
+
     - if <[missing_file]> == 0:
       - determine <context.message>
 
@@ -72,7 +74,7 @@ RandomDeathMessages:
     - define player:<player.name>
 
     # Begin PVP
-    - if <[enable_pvp]> == true && <context.damager.entity_type> == PLAYER:
+    - if <script[rdm_config].yaml_key[enable_pvp]> == true && <context.damager.entity_type> == PLAYER:
 
       # Set a useful var, only used in the PVP context.
       - define killer:<context.damager.name>
@@ -90,17 +92,17 @@ RandomDeathMessages:
     # End PVP
 
     # Begin MythicMobs
-    - if <[enable_mythicmobs]> && <context.damager.is_mythicmob>:
+    - if <script[rdm_config].yaml_key[enable_mythicmobs]> && <context.damager.is_mythicmob>:
       - determine <yaml[rdm_mythic].list_keys[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<[player]>].parsed>
     
     # End MythicMobs
 
     # Begin MC Mobs
-    - if <[enable_mobs]> && <context.cause> == ENTITY_ATTACK || <context.damager.entity_type> == SKELETON:
+    - if <script[rdm_config].yaml_key[enable_mobs]> && <[enable_mobs]> && <context.cause> == ENTITY_ATTACK || <context.damager.entity_type> == SKELETON:
       - determine <yaml[rdm_mobs].list_keys[<context.damager.entity_type>].random.replace[!player].with[<[player]>].parsed>
     # End MC Mobs
 
     # Begin Environment - this needs work..
-    - if <[enable_environment]> && <context.cause> != ENTITY_ATTACK:
+    - if <script[rdm_config].yaml_key[enable_environment]> && <context.cause> != ENTITY_ATTACK:
       - determine <yaml[rdm_env].list_keys[<context.cause>].random.replace[!player].with[<[player]>].parsed>
     # End Environment
