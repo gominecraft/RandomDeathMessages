@@ -5,7 +5,7 @@
 # Provides random messages when players expire in an unfortunate manner.
 #
 # author  : GoMinecraft ( Discord: GoMinecraft#1421 )
-# version : 0.1
+# version : 1.0.0
 #
 # Recommendation(s):
 # * Install Depenizen, required if you want custom death messages for MythicMobs.
