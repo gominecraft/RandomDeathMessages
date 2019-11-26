@@ -16,7 +16,7 @@
 rdm_config:
   type: yaml data
   # Begin config
-  enable_debug_messages: true
+  enable_debug_messages: false
   # End config
 
 # ---- Don't edit below here unless you know what you're doing.
@@ -105,7 +105,7 @@ RandomDeathMessages:
     # End PVP
 
     # Begin MythicMobs
-    - if <server.list_plugins.contains_text[Depenizen]>:
+    - if <server.list_plugins.contains_text[Depenizen]> && <server.list_plugins.contains_text[MythicMobs]>:
       - if <context.damager.is_mythicmob>:
         - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<player.name>].parsed>
     # End MythicMobs
