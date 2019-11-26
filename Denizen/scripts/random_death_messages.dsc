@@ -47,25 +47,25 @@ RandomDeathMessages:
       - define weapon:<context.damager.item_in_hand.formatted>
       # Did we get hit by an arrow?
       - if <context.cause> == PROJECTILE:
-        - determine <yaml[rdm_pvp].list_keys[projectile].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>]>
+        - determine <yaml[rdm_pvp].list_keys[projectile].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].parsed>
 
       # Melee, empty hand
       - if <[weapon]> == "nothing":
         - determine <yaml[rdm_pvp].list_keys[fists].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>]>
       # Melee, something in-hand.
-      - determine <yaml[rdm_pvp].list_keys[weapon].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>]>
+      - determine <yaml[rdm_pvp].list_keys[weapon].random.replace[!player].with[<[player]>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
     # End PVP
 
     # MythicMobs, check this first
     - if <context.damager.is_mythicmob>:
-      - determine <yaml[rdm_mythic].list_keys[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<[player]>]>
+      - determine <yaml[rdm_mythic].list_keys[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<[player]>].parsed>
     # End MythicMobs
 
     # MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type> == SKELETON:
-      - determine <yaml[rdm_mobs].list_keys[<context.damager.entity_type>].random.replace[!player].with[<[player]>]>
+      - determine <yaml[rdm_mobs].list_keys[<context.damager.entity_type>].random.replace[!player].with[<[player]>].parsed>
     # End MC Mobs
 
     # Environment deaths
     - else
-      - determine <yaml[rdm_env].list_keys[<context.cause>].random.replace[!player].with[<[player]>]>
+      - determine <yaml[rdm_env].list_keys[<context.cause>].random.replace[!player].with[<[player]>].parsed>
