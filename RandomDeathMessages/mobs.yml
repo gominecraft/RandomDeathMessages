@@ -87,6 +87,13 @@ WITCH:
 WITHER_SKELETON:
   - "<green>!player <yellow>was destroyed by a <red>Wither<yellow>!"
   - "<green>!player <yellow>withered under the onslaught of a <red>Wither<yellow>."
+WOLF:
+  - "<green>!player <yellow>got shredded by a &cWolf<yellow>."
+  - "<green>!player <yellow>got slaughtered by a &cWolf<yellow>!"
+  - "<green>!player <yellow>became lunch for a hungry &cWolf<yellow>!"
+  - "<green>!player <yellow>received a love bite from a friendly &cWolf<yellow>."
+  - "<green>!player <yellow>got their ankles chewed off by a &cWolf<yellow>!"
+  - "<green>!player <yellow>got ripped to shreds by a &cWolf<yellow>!"
 ZOMBIE:
   - "<green>!player <yellow>needs to plant more vegetation against the <red>Zombie <yellow>invasion."
   - "<green>!player <yellow>got their brains munched on by a <red>Zombie<yellow>."

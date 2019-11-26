@@ -24,7 +24,7 @@ rdm_config:
 
 rdm_init:
   type: task
-  debug: true
+  debug: false
   script:
   - flag server rdm_missing_file:false
   # Load our files..
@@ -58,7 +58,7 @@ rdm_init:
 
 RandomDeathMessages:
   type: world
-  debug: true
+  debug: false
   events:
     on server start:
       - debug log "Now running rdm_init.after startup.."
@@ -82,7 +82,9 @@ RandomDeathMessages:
       - determine <context.message>
 
     # Begin PVP
-    - if <context.damager.entity_type> == PLAYER:
+    - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]>:
+      - if <context.damager.is_tamed>:
+        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parsed>
 
       # Set a useful var, only used in the PVP context.
       - define killer:<context.damager.name>
@@ -93,11 +95,13 @@ RandomDeathMessages:
         - determine <yaml[rdm_pvp].read[RANGED].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
 
       # Melee, empty hand
-      - if <[weapon]> == "nothing":
-        - determine <yaml[rdm_pvp].read[FISTS].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
+      - if <context.damager.entity_type> == PLAYER:
+        - if <[weapon]> == "nothing":
+          - determine <yaml[rdm_pvp].read[FISTS].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
 
-      # Melee, something in-hand.
-      - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
+        # Melee, something in-hand.
+        - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
+    # If nothing in here fires, it was an untamed wolf that muirdered the player.
     # End PVP
 
     # Begin MythicMobs
