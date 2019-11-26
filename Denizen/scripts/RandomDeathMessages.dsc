@@ -74,7 +74,7 @@ RandomDeathMessages:
     - if <script[rdm_config].yaml_key[enable_debug_messages]> == true:
       - debug log "Cause: <context.cause>"
       - debug log "Entity: <context.damager.entity_type>"
-      - if <context.damager.is_mythicmob> == true:
+      - if <server.list_plugins.contains_text[Depenizen]> && <context.damager.is_mythicmob>:
         - debug log "Is Mythic Mob: context.damager.is_mythicmob"
         - debug log "MythicMob Internal Name: <context.damager.mythicmob.internal_name>"
 
