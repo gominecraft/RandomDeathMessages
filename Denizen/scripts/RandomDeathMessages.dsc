@@ -15,7 +15,7 @@
 
 rdm_init:
   type: task
-  debug: false
+  debug: true
   script:
   - flag server rdm_missing_file:false
 
@@ -55,7 +55,7 @@ rdm_init:
 
 RandomDeathMessages:
   type: world
-  debug: false
+  debug: true
   events:
     on server start:
       - inject <script[rdm_init]>
@@ -77,7 +77,7 @@ RandomDeathMessages:
       - determine <context.message>
 
     # Begin PVP
-    - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]>:
+    - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]||false>:
       - if <context.damager.entity_type> == WOLF && <context.damager.is_tamed||false>:
         - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parsed>
 
@@ -101,12 +101,12 @@ RandomDeathMessages:
 
     # Begin MythicMobs
     - if <server.list_plugins.contains_all_text[Depenizen|MythicMobs]>:
-      - if <context.damager.is_mythicmob>:
+      - if <context.damager.is_mythicmob||false>:
         - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<player.name>].parsed>
     # End MythicMobs
 
     # Begin MC Mobs
-    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type> == SKELETON:
+    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type||false> == SKELETON:
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.replace[!player].with[<player.name>].parsed>
     # End MC Mobs
 
