@@ -1,9 +1,20 @@
+
+# +--------------------
+# |
+# | Random Death Messages
+# |
+# | Provides random messages when players expire in an unfortunate manner.
+# |
+# +----------------------
 #
-# Random Death Messages
+# @author GoMinecraft ( Discord: GoMinecraft#1421 )
+# @date 2019/11/27
+# @denizen-build REL-1696
+# @script-version 1.2.0 (Commandy Commanderson)
 #
-# Provides random messages when players expire in an unfortunate manner.
-#
-# author  : GoMinecraft ( Discord: GoMinecraft#1421 )
+# Usage:
+# /rdm (version) - Shows the version
+# /rdm reload - Reloads the config.yml and related language files.
 #
 # Recommendation(s):
 # * Install Depenizen, required if you want custom death messages for MythicMobs.
@@ -12,7 +23,7 @@
 # ---- Don't edit below here unless you know what you're doing.
 # ---- I definitely don't know what I'm doing.
 
-rdm_config:
+rdm_version:
   type: yaml data
   version: 1.2.0 (Commandy Commanderson)
 
@@ -21,47 +32,41 @@ rdm_init:
   type: task
   debug: false
   script:
-  - flag server rdm_missing_file:false
 
   - if <server.has_file[../RandomDeathMessages/config.yml]>:
     - ~yaml load:../RandomDeathMessages/config.yml id:rdm_config
-    - debug log "Loaded config.yml"
+    - announce to_console "[RandomDeathMessages] Loaded config.yml"
   - else:
-    - debug log "Unables to load plugins/RandomDeathMessages/config.yml"
-    - flag server rdm_missing_file:true
+    - announce to_console "Unables to load plugins/RandomDeathMessages/config.yml"
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml id:rdm_mobs
-    - debug log "Loaded <yaml[rdm_config].read[language]>/mobs.yml"
+    - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/mobs.yml"
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
-    - flag server rdm_missing_file:true
+    - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml id:rdm_env
-    - debug log "Loaded <yaml[rdm_config].read[language]>/environment.yml"
+    - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/environment.yml"
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml - File is missing!"
-    - flag server rdm_missing_file:true
+    - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml - File is missing!"
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml id:rdm_pvp
-    - debug log "Loaded <yaml[rdm_config].read[language]>/pvp.yml"
+    - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/pvp.yml"
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml - File is missing!"
-    - flag server rdm_missing_file:true
+    - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml - File is missing!"
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml id:rdm_mythicmobs
-    - debug log "Loaded <yaml[rdm_config].read[language]>/mythicmobs.yml"
+    - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/mythicmobs.yml"
   - else:
-    - debug log "Unable to load plugins//RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
-    - flag server rdm_missing_file:true
+    - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
   - if <server.flag[rdm_missing_file]>:
     - narrate "<red>One or more expected files are missing. RandomDeathMessages will not be enabled."
   - else:
-    - narrate "Loaded all config files successfully. This does not mean there were no syntax errors."
+    - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
 
 rdm_cmd:
   type: command
@@ -75,7 +80,7 @@ rdm_cmd:
   permission message: <red>Sorry, <player.name>, you do not have permission to run that command.
   script:
   - if <context.args.size> == 0 || <context.args.get[1]> == version:
-    - narrate "<red>RandomDeathMessages <green>v<script[rdm_config].yaml_key[version]>"
+    - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
   - else if <context.args.get[1]> == "reload":
     - inject rdm_init
     - narrate "<green>RandomDeathMessages has been reloaded."
@@ -85,30 +90,24 @@ rdm_cmd:
 # And here be the guts
 RandomDeathMessages:
   type: world
-  debug: false
+  debug: flase
   events:
     on server start:
-      - inject <script[rdm_init]>
+      - inject rdm_init
 
     on reload scripts:
-      - inject <script[rdm_init]>
+      - inject rdm_init
 
     on player death:
-    # If enable_debug_messages is on, throw some trash into the log.
-    - if <yaml[rdm_config].read[enable_debug_messages]>:
-      - debug log "Cause: <context.cause>"
-      - debug log "Entity: <context.damager.entity_type>"
-      - if <server.list_plugins.contains_all_text[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
-        - debug log "Is Mythic Mob: Yes"
-        - debug log "MythicMob Internal Name: <context.damager.mythicmob.internal_name>"
+    - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]> == false:
+      - narrate "<red>One or more config files failed to load. Please check your console log."
+      - stop
 
-    - if <server.flag[rdm_missing_file]> == true:
-      - determine <context.message>
-
+    - define player:<player.name>
     # Begin PVP
     - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]||false>:
       - if <context.damager.entity_type> == WOLF && <context.damager.is_tamed||false>:
-        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parsed>
+        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parse_color>
 
       # Set a useful var, only used in the PVP context.
       - define killer:<context.damager.name>
@@ -116,30 +115,28 @@ RandomDeathMessages:
 
       # Did we get hit by an arrow?
       - if <context.cause> == PROJECTILE:
-        - determine <yaml[rdm_pvp].read[RANGED].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
+        - determine <yaml[rdm_pvp].read[RANGED].random.parsed>
 
       # Melee, empty hand
       - if <context.damager.entity_type> == PLAYER:
         - if <[weapon]> == nothing:
-          - determine <yaml[rdm_pvp].read[FISTS].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].parsed>
+          - determine <yaml[rdm_pvp].read[FISTS].random.parsed>
 
         # Melee, something in-hand.
-        - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
+        - determine <yaml[rdm_pvp].read[WEAPON].random.parsed>
     # If nothing in here fires, it was an untamed wolf that muirdered the player.
     # End PVP
 
     # Begin MythicMobs
-    - if <server.list_plugins.contains_all_text[Depenizen|MythicMobs]>:
-      - if <context.damager.is_mythicmob||false>:
-        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.replace[!player].with[<player.name>].parsed>
+    - if <server.list_plugins.contains_all[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
+        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parse_color>
     # End MythicMobs
 
     # Begin MC Mobs
-    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type||false> == SKELETON:
-      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.replace[!player].with[<player.name>].parsed>
+    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER]||false>:
+      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parse_color>
     # End MC Mobs
 
     # Begin Environment - this needs work..
-    - if <context.cause> != ENTITY_ATTACK:
-      - determine <yaml[rdm_env].read[<context.cause>].random.replace[!player].with[<player.name>].parsed>
+    - determine <yaml[rdm_env].read[<context.cause>].random.parsed>
     # End Environment

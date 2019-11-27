@@ -1,19 +1,19 @@
 # Placeholders used in here:
-# !player
-# !killer
-# !weapon - What the killer was holding, if not empty handed
+# <[player]> - The player that died.
+# <[killer]> - You know. The killer.
+# <[weapon]> - What the killer was holding, if not empty handed
 
 # When killed by someone with no weapons.
 FISTS:
-  - "<green>!player <yellow>got a beat down, courtesy of <red>!killer."
+  - "<green><[player]> <yellow>got a beat down, courtesy of <red><[killer]>."
 WEAPON:
-  - "<green>!player <yellow>was killed by <red>!killer, who was wielding <blue>!weapon."
+  - "<green><[player]> <yellow>was killed by <red><[killer]>, who was wielding <blue><[weapon]>."
 
 WOLF:
-  - "<red>!killer's <yellow>wolf gnawed <green>!player's leg off."
-  - "<green>!player <yellow>got shredded by <red>!killer<yellow>'s &bWolf<yellow>."
-  - "<green>!player <yellow>became a victim of <red>!killer<yellow>'s goodest boye."
+  - "<red><[killer]>'s <yellow>wolf gnawed <green><[player]>'s leg off."
+  - "<green><[player]> <yellow>got shredded by <red><[killer]><yellow>'s &bWolf<yellow>."
+  - "<green><[player]> <yellow>became a victim of <red><[killer]><yellow>'s goodest boye."
 
 # When killed with a bow.
 RANGED:
-  - "<yellow>HEADSHOT! <red>!killer <yellow>has slain <greeb>!player<yellow>."
+  - "<yellow>HEADSHOT! <red><[killer]> <yellow>has slain <green><[player]><yellow>."
