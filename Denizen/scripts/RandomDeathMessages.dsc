@@ -30,28 +30,28 @@ rdm_init:
   - flag server rdm_missing_file:false
 
   # Load our files..
-  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].key[language]>/mobs.yml]>:
-    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].key[language]>/mobs.yml id:rdm_mobs
+  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mobs.yml]>:
+    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mobs.yml id:rdm_mobs
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].key[language]>/mobs.yml - File is missing!"
+    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mobs.yml - File is missing!"
     - flag server rdm_missing_file:true
 
-  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].key[language]>/environment.yml]>:
-    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].key[language]>/environment.yml id:rdm_env
+  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/environment.yml]>:
+    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/environment.yml id:rdm_env
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].key[language]>/environment.yml - File is missing!"
+    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/environment.yml - File is missing!"
     - flag server rdm_missing_file:true
 
-  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].key[language]>/pvp.yml]>:
-    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].key[language]>/pvp.yml id:rdm_pvp
+  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/pvp.yml]>:
+    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/pvp.yml id:rdm_pvp
   - else:
-    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].key[language]>/pvp.yml - File is missing!"
+    - debug log "Unable to load plugins/RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/pvp.yml - File is missing!"
     - flag server rdm_missing_file:true
 
-  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].key[language]>/mythicmobs.yml]>:
-    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].key[language]>/mythicmobs.yml id:rdm_mythicmobs
+  - if <server.has_file[../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mythicmobs.yml]>:
+    - ~yaml load:../RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mythicmobs.yml id:rdm_mythicmobs
   - else:
-    - debug log "Unable to load plugins//RandomDeathMessages/lang/<script[rdm_config].key[language]>/mobs.yml - File is missing!"
+    - debug log "Unable to load plugins//RandomDeathMessages/lang/<script[rdm_config].yaml_key[language]>/mobs.yml - File is missing!"
     - flag server rdm_missing_file:true
 
   - if <server.flag[rdm_missing_file]>:
