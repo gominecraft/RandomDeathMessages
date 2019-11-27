@@ -14,7 +14,7 @@
 
 rdm_config:
   type: yaml data
-  version: 1.2.0
+  version: 1.2.0 (Commandy Commanderson)
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
