@@ -65,7 +65,7 @@ rdm_init:
 
 rdm_cmd:
   type: command
-  debug: true
+  debug: false
   name: randomdeathmessages
   aliases:
   - rdm
