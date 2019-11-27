@@ -4,15 +4,19 @@
 # Provides random messages when players expire in an unfortunate manner.
 #
 # author  : GoMinecraft ( Discord: GoMinecraft#1421 )
-# version : 1.1.1
 #
 # Recommendation(s):
 # * Install Depenizen, required if you want custom death messages for MythicMobs.
-#
+#   * If you don't, you get the death messages for the underlying base mob.
 
 # ---- Don't edit below here unless you know what you're doing.
 # ---- I definitely don't know what I'm doing.
 
+rdm_config:
+  type: yaml data
+  version: 1.2.0
+
+  # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
   type: task
   debug: false
@@ -21,38 +25,64 @@ rdm_init:
 
   - if <server.has_file[../RandomDeathMessages/config.yml]>:
     - ~yaml load:../RandomDeathMessages/config.yml id:rdm_config
+    - debug log "Loaded config.yml"
   - else:
     - debug log "Unables to load plugins/RandomDeathMessages/config.yml"
     - flag server rdm_missing_file:true
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml id:rdm_mobs
+    - debug log "Loaded <yaml[rdm_config].read[language]>/mobs.yml"
   - else:
     - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
     - flag server rdm_missing_file:true
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml id:rdm_env
+    - debug log "Loaded <yaml[rdm_config].read[language]>/environment.yml"
   - else:
     - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml - File is missing!"
     - flag server rdm_missing_file:true
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml id:rdm_pvp
+    - debug log "Loaded <yaml[rdm_config].read[language]>/pvp.yml"
   - else:
     - debug log "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml - File is missing!"
     - flag server rdm_missing_file:true
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml id:rdm_mythicmobs
+    - debug log "Loaded <yaml[rdm_config].read[language]>/mythicmobs.yml"
   - else:
     - debug log "Unable to load plugins//RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
     - flag server rdm_missing_file:true
 
   - if <server.flag[rdm_missing_file]>:
     - narrate "<red>One or more expected files are missing. RandomDeathMessages will not be enabled."
+  - else:
+    - narrate "Loaded all config files successfully. This does not mean there were no syntax errors."
 
+rdm_cmd:
+  type: command
+  debug: true
+  name: randomdeathmessages
+  aliases:
+  - rdm
+  description: Show what version of RandomDeathMessages is installed
+  usage: /randomdeathmessages <&lt>version|reload<&gt>
+  permission: randomdeathmessages.rdm
+  permission message: <red>Sorry, <player.name>, you do not have permission to run that command.
+  script:
+  - if <context.args.size> == 0 || <context.args.get[1]> == version:
+    - narrate "<red>RandomDeathMessages <green>v<script[rdm_config].yaml_key[version]>"
+  - else if <context.args.get[1]> == "reload":
+    - inject rdm_init
+    - narrate "<green>RandomDeathMessages has been reloaded."
+  - else:
+    - narrate "<red>Unknown command: <gold><context.args.get[1]>"
 
+# And here be the guts
 RandomDeathMessages:
   type: world
   debug: false
@@ -64,13 +94,12 @@ RandomDeathMessages:
       - inject <script[rdm_init]>
 
     on player death:
-
-    # If debug messages is on, throw some trash into the log.
+    # If enable_debug_messages is on, throw some trash into the log.
     - if <yaml[rdm_config].read[enable_debug_messages]>:
       - debug log "Cause: <context.cause>"
       - debug log "Entity: <context.damager.entity_type>"
-      - if <server.list_plugins.contains_text[Depenizen]> && <context.damager.is_mythicmob||false>:
-        - debug log "Is Mythic Mob: context.damager.is_mythicmob"
+      - if <server.list_plugins.contains_all_text[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
+        - debug log "Is Mythic Mob: Yes"
         - debug log "MythicMob Internal Name: <context.damager.mythicmob.internal_name>"
 
     - if <server.flag[rdm_missing_file]> == true:
