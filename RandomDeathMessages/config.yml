@@ -3,4 +3,4 @@
 language: en_us
 
 # Generally best to leave this off.
-enable_debug_message: false
+enable_debug_messages: false
