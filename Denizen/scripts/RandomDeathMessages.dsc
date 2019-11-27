@@ -101,7 +101,7 @@ RandomDeathMessages:
 
         # Melee, something in-hand.
         - determine <yaml[rdm_pvp].read[WEAPON].random.replace[!player].with[<player.name>].replace[!killer].with[<[killer]>].replace[!weapon].with[<[weapon]>].parsed>
-    # If nothing in here fires, it was an untamed wolf that muirdered the player.
+    # If nothing in here fires, it was an untamed wolf that murdered the player.
     # End PVP
 
     # Begin MythicMobs
