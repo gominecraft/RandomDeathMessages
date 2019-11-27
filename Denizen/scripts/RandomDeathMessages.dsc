@@ -63,11 +63,6 @@ rdm_init:
   - else:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
-  - if <server.flag[rdm_missing_file]>:
-    - narrate "<red>One or more expected files are missing. RandomDeathMessages will not be enabled."
-  - else:
-    - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
-
 rdm_cmd:
   type: command
   debug: false
@@ -92,16 +87,18 @@ RandomDeathMessages:
   type: world
   debug: flase
   events:
-    on server start:
+    on reload scripts:
       - inject rdm_init
 
-    on reload scripts:
+    on server start:
       - inject rdm_init
 
     on player death:
     - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]> == false:
       - narrate "<red>One or more config files failed to load. Please check your console log."
       - stop
+    - else:
+      - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
 
     - define player:<player.name>
     # Begin PVP
