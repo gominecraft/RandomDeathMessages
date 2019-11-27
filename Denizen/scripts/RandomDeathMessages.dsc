@@ -15,7 +15,7 @@
 
 rdm_init:
   type: task
-  debug: true
+  debug: false
   script:
   - flag server rdm_missing_file:false
 
@@ -55,7 +55,7 @@ rdm_init:
 
 RandomDeathMessages:
   type: world
-  debug: true
+  debug: false
   events:
     on server start:
       - inject <script[rdm_init]>
