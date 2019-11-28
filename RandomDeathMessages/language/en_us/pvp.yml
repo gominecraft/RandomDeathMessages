@@ -6,17 +6,17 @@
 # When killed by someone with no weapons.
 FISTS:
   - "<green><[player]> <yellow>got a beat down, courtesy of <red><[killer]>."
-  - "<&c><[killer]> <&e>slapped the shit out of <&a><[player]>."
+  - "<red><[killer]> <yellow>slapped the shit out of <green><[player]>."
 WEAPON:
   - "<green><[player]> <yellow>was killed by <red><[killer]>, who was wielding <blue><[weapon]>."
-  - "<&c><[killer]> <&e>stabby stabbed <&9><[weapon]> into <&a><[player]>'s chest."
+  - "<red><[killer]> <yellow>stabbity stabbed <blue><[weapon]> into <green><[player]>'s chest."
 
 WOLF:
   - "<red><[killer]>'s <yellow>wolf gnawed <green><[player]>'s leg off."
-  - "<green><[player]> <yellow>got shredded by <red><[killer]><yellow>'s &bWolf<yellow>."
+  - "<green><[player]> <yellow>got shredded by <red><[killer]><yellow>'s Wolf<yellow>."
   - "<green><[player]> <yellow>became a victim of <red><[killer]><yellow>'s goodest boye."
 
 # When killed with a bow.
 RANGED:
   - "<yellow>HEADSHOT! <red><[killer]> <yellow>has slain <green><[player]><yellow>."
-  - "<&a><[player]> <&e>got yeeted by <&c><[killer]>"
+  - "<green><[player]> <yellow>got yeeted by <&c><[killer]>"
