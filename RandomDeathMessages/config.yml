@@ -1,6 +1,3 @@
 # Set your language.
 # This maps to RandomDeathMessages/language/[language]/
 language: en_us
-
-# Generally best to leave this off.
-enable_debug_messages: false
