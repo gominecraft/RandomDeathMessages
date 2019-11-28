@@ -27,9 +27,13 @@ Otherwise, start the server up.
 
 That's it, You're done.
 
-You may modify the yaml files under plugins/RandomDeathMessages/language/en_us/ at will. The format should be fairly obvious.
+## Configuration
 
-If you would like to translate it to another language, I recommend making a new directory inside of /languages/, copying the existing yml files to the new location and modifying them there.
+You may modify the yaml files under **plugins/RandomDeathMessages/language/en_us/** at will. The format should be fairly obvious.
+
+If you would like to translate it to another language, I recommend making a new directory inside of **plugins/RandomDeathMessages/languages/**, copying the existing yml files to the new location and modifying them there.
+
+Also, swing in a pull req if you make a translation.
 
 You can edit **plugins/RandomDeathMessages/config.yml** to point to the new language directory.
 
