@@ -85,7 +85,7 @@ rdm_cmd:
 # And here be the guts
 RandomDeathMessages:
   type: world
-  debug: flase
+  debug: false
   events:
     on reload scripts:
       - inject rdm_init
@@ -94,7 +94,7 @@ RandomDeathMessages:
       - inject rdm_init
 
     on player death:
-    - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]> == false:
+    - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
       - narrate "<red>One or more config files failed to load. Please check your console log."
       - stop
     - else:
