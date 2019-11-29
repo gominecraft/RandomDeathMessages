@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/11/27
 # @denizen-build REL-1696
-# @script-version 1.2.1
+# @script-version 1.2.2
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.1
+  version: 1.2.2
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -95,16 +95,16 @@ RandomDeathMessages:
 
     on player death:
     - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
+      - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
+    - else:
       - narrate "<red>One or more config files failed to load. Please check your console log."
       - stop
-    - else:
-      - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
 
     - define player:<player.name>
     # Begin PVP
     - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]||false>:
       - if <context.damager.entity_type> == WOLF && <context.damager.is_tamed||false>:
-        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parse_color>
+        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parsed>
 
       # Set a useful var, only used in the PVP context.
       - define killer:<context.damager.name>
@@ -126,12 +126,12 @@ RandomDeathMessages:
 
     # Begin MythicMobs
     - if <server.list_plugins.contains_all[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
-        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parse_color>
+        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parsed>
     # End MythicMobs
 
     # Begin MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER]||false>:
-      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parse_color>
+      - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 
     # Begin Environment - this needs work..
