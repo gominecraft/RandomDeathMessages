@@ -74,7 +74,7 @@ rdm_cmd:
   permission: randomdeathmessages.rdm
   permission message: <red>Sorry, <player.name>, you do not have permission to run that command.
   script:
-  - if <context.args.size> == 0 || <context.args.get[1]> == version:
+  - if <context.args.size> == 0 || <context.args.get[1]||null> == version:
     - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
   - else if <context.args.get[1]> == "reload":
     - inject rdm_init
