@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/11/27
 # @denizen-build REL-1696
-# @script-version 1.2.0 (Commandy Commanderson)
+# @script-version 1.2.1
 #
 # Usage:
 # /rdm (version) - Shows the version
