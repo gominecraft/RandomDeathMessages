@@ -85,7 +85,7 @@ rdm_cmd:
 # And here be the guts
 RandomDeathMessages:
   type: world
-  debug: true
+  debug: false
   events:
     on reload scripts:
       - inject rdm_init
