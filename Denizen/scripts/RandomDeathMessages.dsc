@@ -85,7 +85,7 @@ rdm_cmd:
 # And here be the guts
 RandomDeathMessages:
   type: world
-  debug: false
+  debug: true
   events:
     on reload scripts:
       - inject rdm_init
@@ -100,11 +100,13 @@ RandomDeathMessages:
       - narrate "<red>One or more config files failed to load. Please check your console log."
       - stop
 
-    - define player:<player.name>
+    - define victim:<player.name>
+
     # Begin PVP
     - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]||false>:
       - if <context.damager.entity_type> == WOLF && <context.damager.is_tamed||false>:
-        - determine <yaml[rdm_pvp].read[WOLF].random.replace[!player].with[<player.name>].replace[!killer].with[<context.damager.owner.name>].parsed>
+        - define killer:<context.damager.owner.name>
+        - determine <yaml[rdm_pvp].read[WOLF].random.parsed>
 
       # Set a useful var, only used in the PVP context.
       - define killer:<context.damager.name>
