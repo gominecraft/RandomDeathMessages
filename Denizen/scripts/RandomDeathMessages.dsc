@@ -64,10 +64,10 @@ rdm_init:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
   - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
-    - narrate "<green>Loaded all RandomDeathMessage config files successfully. This does not mean there were no syntax errors."
+    - announce to_console "[RandomDeathMessages] Loaded all config files successfully. This does not mean there were no syntax errors."
     - flag server failedLoad:false
   - else:
-    - narrate "<red>One or more config files failed to load. Please check your console log."
+    - announce to_console "[RandomDeathMessages] One or more config files failed to load. Please check your console log."
     - flag server failedLoad:true
 
 rdm_cmd:
@@ -87,7 +87,7 @@ rdm_cmd:
     - inject rdm_init
     - narrate "<green>RandomDeathMessages has been reloaded."
   - else:
-    - narrate "<red>Unknown command: <gold><context.args.get[1]>"
+    - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
 
 # And here be the guts
 RandomDeathMessages:
