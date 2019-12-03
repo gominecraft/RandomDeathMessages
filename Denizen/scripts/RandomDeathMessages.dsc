@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/11/27
 # @denizen-build REL-1696
-# @script-version 1.2.4
+# @script-version 1.2.5
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.4
+  version: 1.2.5
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -132,14 +132,26 @@ RandomDeathMessages:
 
     # Begin MythicMobs
     - if <server.list_plugins.contains_all[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
-        - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parsed>
+      # If we don't have an item specified, default message.
+      - if <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>]||null> == null:
+        - announce to_console "[RandomDeathMessages] No key found for <context.damager.mythicmob.internal_name> - (Mythic Mob)"
+        - determine <context.message>
+
+      - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parsed>
     # End MythicMobs
 
     # Begin MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER]||false>:
+      # If we don't have an item specified, default message.
+      - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
+        - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_typ> - (Regular MC Monster)"
+        - determine <context.message>
+
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 
-    # Begin Environment - this needs work..
+    - if <yaml[rdm_mobs].read[<context.cause>]||null> == null:
+      - announce to_console "[RandomDeathMessages] No key found for <context.cause> - (Environment - possibly)"
+      - determine <context.message>
     - determine <yaml[rdm_env].read[<context.cause>].random.parsed>
     # End Environment
