@@ -8,9 +8,9 @@
 # +----------------------
 #
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
-# @date 2019/12/03
+# @date 2019/12/5
 # @denizen-build REL-1696
-# @script-version 1.2.6
+# @script-version 1.2.7
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.6
+  version: 1.2.7
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -150,7 +150,7 @@ RandomDeathMessages:
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 
-    - if <yaml[rdm_mobs].read[<context.cause>]||null> == null:
+    - if <yaml[rdm_env].read[<context.cause>]||null> == null:
       - announce to_console "[RandomDeathMessages] No key found for <context.cause> - (Environment - possibly)"
       - determine <context.message>
     - determine <yaml[rdm_env].read[<context.cause>].random.parsed>
