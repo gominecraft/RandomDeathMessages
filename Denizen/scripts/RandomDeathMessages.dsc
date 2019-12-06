@@ -81,18 +81,18 @@ rdm_cmd:
   permission message: <red>Sorry, <player.name>, you do not have permission to run that command.
   tab complete:
   - if <context.args.size> < 1:
-      - determine <list[reload|version]>
+    - determine <list[reload|version]>
   - if <context.args.size> == 1 && "!<context.raw_args.ends_with[ ]>":
-      - determine <list[reload|version].filter[starts_with[<context.args.get[1]>]]>
+    - determine <list[reload|version].filter[starts_with[<context.args.get[1]>]]>
   script:
   - choose <context.args.get[1]||version>:
-      - case version:
-          - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
-      - case reload:
-          - inject rdm_init
-          - narrate "<green>RandomDeathMessages has been reloaded."
-      - default:
-          - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
+    - case version:
+      - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
+    - case reload:
+      - inject rdm_init
+      - narrate "<green>RandomDeathMessages has been reloaded."
+    - default:
+      - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
 
 # And here be the guts
 RandomDeathMessages:
