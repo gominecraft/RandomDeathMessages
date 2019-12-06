@@ -106,7 +106,7 @@ RandomDeathMessages:
       - inject rdm_init
 
     on player death:
-    - if <server.flag[failedLoad]>:
+    - if <server.has_flag[failedLoad]>:
       - stop
 
     - define victim:<player.name>
