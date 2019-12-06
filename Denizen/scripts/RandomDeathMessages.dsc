@@ -64,10 +64,10 @@ rdm_init:
 
   - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
     - announce to_console "[RandomDeathMessages] Loaded all config files successfully. This does not mean there were no syntax errors."
-    - flag server failedLoad:false
+    - flag server failedLoad:!
   - else:
     - announce to_console "[RandomDeathMessages] One or more config files failed to load. Please check your console log."
-    - flag server failedLoad:true
+    - flag server failedLoad
 
 rdm_cmd:
   type: command
@@ -79,14 +79,20 @@ rdm_cmd:
   usage: /randomdeathmessages <&lt>version|reload<&gt>
   permission: randomdeathmessages.rdm
   permission message: <red>Sorry, <player.name>, you do not have permission to run that command.
+  tab complete:
+  - if <context.args.size> < 1:
+    - determine <list[reload|version]>
+  - if <context.args.size> == 1 && "!<context.raw_args.ends_with[ ]>":
+    - determine <list[reload|version].filter[starts_with[<context.args.get[1]>]]>
   script:
-  - if <context.args.size> == 0 || <context.args.get[1]||null> == version:
-    - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
-  - else if <context.args.get[1]> == "reload":
-    - inject rdm_init
-    - narrate "<green>RandomDeathMessages has been reloaded."
-  - else:
-    - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
+  - choose <context.args.get[1]||version>:
+    - case version:
+      - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
+    - case reload:
+      - inject rdm_init
+      - narrate "<green>RandomDeathMessages has been reloaded."
+    - default:
+      - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
 
 # And here be the guts
 RandomDeathMessages:
@@ -100,7 +106,7 @@ RandomDeathMessages:
       - inject rdm_init
 
     on player death:
-    - if <server.flag[failedLoad]>:
+    - if <server.has_flag[failedLoad]>:
       - stop
 
     - define victim:<player.name>
