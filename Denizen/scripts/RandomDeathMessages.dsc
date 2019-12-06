@@ -32,7 +32,6 @@ rdm_init:
   type: task
   debug: false
   script:
-
   - if <server.has_file[../RandomDeathMessages/config.yml]>:
     - ~yaml load:../RandomDeathMessages/config.yml id:rdm_config
     - announce to_console "[RandomDeathMessages] Loaded config.yml"
