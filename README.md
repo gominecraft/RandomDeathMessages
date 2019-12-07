@@ -6,7 +6,7 @@ Denizen script to replace death messages with random, saltier messages.
 
 ## Requirements
 
-* [Spigot](https://www.spigotmc.org/)
+* [PaperMC](https://papermc.io/) | [Spigot](https://www.spigotmc.org/)
 * [Denizen](https://ci.citizensnpcs.co/job/Denizen/) | [Denizen Development](https://ci.citizensnpcs.co/job/Denizen_Developmental/)
 
 If you are using [MythicMobs](https://www.mythicmobs.net/index.php?pages/download/), you also need [Depenizen](https://ci.citizensnpcs.co/job/Depenizen/). You should probably get Depenizen anyway.
