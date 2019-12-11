@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/6
 # @denizen-build REL-1696
-# @script-version 1.2.8
+# @script-version 1.2.9
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.8
+  version: 1.2.9
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
