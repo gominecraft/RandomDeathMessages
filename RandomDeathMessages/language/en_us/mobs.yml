@@ -3,6 +3,9 @@
 # <[victim]>
 #
 
+BEE:
+  - "<green><[victim]> <yellow>got stung to death by a mildly upset <red>Bee<yellow>."
+  - "<green><[victim]> <yellow>messed with the wrong hive."
 BLAZE:
   - "<green><[victim]> <yellow>was set ablaze by a <red>Blaze"
   - "<green><[victim]> <yellow>is smokin'. Needs to avoid the <red>Blaze<yellow>."
