@@ -46,9 +46,9 @@ HUSK:
   - "<yellow>A husky <red>Husk <yellow>husked <green><[victim]><yellow>."
 IRON_GOLEM:
   - "<green><[victim]> <yellow>broke the village rules and got clobbered by a <red>Golem<yellow>."
-  - "<green><[victim]> <yellow>tangled with a <red>Golem<yellow> and got smashed to bits."
+  - "<green><[victim]> <yellow>tangled with a <red>Golem <yellow>and got smashed to bits."
 LLAMA:
-  - "<green><[victim]> <yellow>discovered that a <red>Llama <yellow>can spit violently.."
+  - "<green><[victim]> <yellow>discovered that a <red>Llama <yellow>can spit violently."
 MAGMA_CUBE:
   - "<green><[victim]> <yellow>was slimed by a <red>Magma Cube<yellow>."
   - "<yellow>A happy, bouncing <red>Lava Blob<yellow> got up close and personal with <green><[victim]><yellow>."
@@ -57,6 +57,7 @@ PIG_ZOMBIE:
   - "<green><[victim]> <yellow>did not respect the <red>Pig Zombie<yellow>."
 PILLAGER:
   - "<green><[victim]> <yellow>got pillaged by a <red>Pillager<yellow>."
+  - "<yellow>A pillage-y <red>Pillager <yellow>pillaged <green><[victim]><yellow>."
 POLAR_BEAR:
   - "<green><[victim]> <yellow>got mauled by a <red>Polar Bear<yellow>."
 SKELETON:
@@ -66,6 +67,7 @@ SKELETON:
   - "<green><[victim]> <yellow>was beaten by a pile of bones holding a bow. Pathetic."
 SHULKER:
   - "<green><[victim]> <yellow>was put down by a <red>Shulker<yellow>."
+  - "<green><[victim]> <yellow>got tossed around by a <red>Shulker<yellow>."
 SILVERFISH:
   - "<green><[victim]> <yellow>was nibbled to death by a <red>Silverfish<yellow>."
   - "<green><[victim]> <yellow>got their ankles nibbled off by a <red>SilverFish<yellow>."

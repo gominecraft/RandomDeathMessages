@@ -36,6 +36,7 @@ FLY_INTO_WALL:
   - "<green><[victim]> flew too close to the su.. er, that wall."
 HOT_FLOOR:
   - "<green><[victim]> <yellow>got nice and toasty on a <red>Magma Block<yellow>."
+  - "<green><[victim]> <yellow>ended up with toasty toes. A little too toasty."
 LAVA:
   - "<green><[victim]> <yellow>took a <red>Lava <yellow>bath."
   - "<green><[victim]> <yellow>discovered just how hot <red>Lava <yellow>really is."
@@ -50,10 +51,12 @@ POISON:
   - "<yellow>There was no antidote for <green><[victim]><yellow>. They died of <red>poisoning<yellow>."
 PRIMED_TNT:
   - "<green><[victim]> <yellow>blew up with the help of some <red>TNT<yellow>."
-  - "<green><[victim]> <yellow>stood too lose to <red>TNT<yellow>."
+  - "<green><[victim]> <yellow>stood too close to <red>TNT<yellow>."
+
 PROJECTILE:
   - "<green><[victim]> <yellow>was ventilated by a trap!"
   - "<green><[victim]> <yellow>walked into a trap. Didn't walk out."
+  - "<green><[victim]> <yellow>got turned into a pincushion by a trap."
 STARVATION:
   - "<green><[victim]> <red>starved <yellow>to death."
   - "<green><[victim]> needs to eat a sammich, died of <red>starvation<yellow>."
