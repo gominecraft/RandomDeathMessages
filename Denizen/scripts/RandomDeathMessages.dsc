@@ -94,6 +94,16 @@ rdm_cmd:
     - default:
       - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
 
+rdm_suicide_cmd:
+  type: command
+  debug: false
+  name: suicide
+  aliases:
+  - dsuicide
+  - esuicide
+  script:
+  - hurt 500 <player>
+
 # And here be the guts
 RandomDeathMessages:
   type: world
@@ -105,11 +115,17 @@ RandomDeathMessages:
     on server start:
       - inject rdm_init
 
+    on suicide command:
+      - flag player suicide duration:1t
+
     on player death:
     - if <server.has_flag[failedLoad]>:
       - stop
 
     - define victim:<player.name>
+
+    - if <player.flag[suicide]>:
+      - determine <yaml[rdm_env].read[SUICIDE].random.parsed>
 
     # Begin PVP
     - if <context.damager.entity_type.contains_any_text[WOLF|PLAYER]||false>:
