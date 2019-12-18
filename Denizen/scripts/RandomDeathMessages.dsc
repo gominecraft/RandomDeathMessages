@@ -115,7 +115,13 @@ RandomDeathMessages:
     on server start:
       - inject rdm_init
 
-    on suicide|esuicide|dsuicide command:
+    on suicide command:
+      - flag player suicide duration:1t
+
+    on dsuicide command:
+      - flag player suicide duration:1t
+
+    on esuicide command:
       - flag player suicide duration:1t
 
     on player death:
