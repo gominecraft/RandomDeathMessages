@@ -1,0 +1,13 @@
+#
+# Placeholders used in here:
+# <[victim]>
+#
+
+AngrySludge:
+  - "<green><[victim]> <yellow>был слизан <red>Злым слизняком<yellow>."
+SkeletalKnight:
+  - "<yellow>У <green><[victim]><yellow> была неудачная встреча с <red>Королём скелетов<yellow>."
+SkeletonKing:
+  - "<green><[victim]> <yellow>был убит могущественным <red>Королём скелетов<yellow>!"
+SkeletalMinion:
+  - "<green><[victim]> <yellow>убит <gold>Скелетным миньоном <red>Короля скелетов<yellow>.'"

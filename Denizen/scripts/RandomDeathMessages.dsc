@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/6
 # @denizen-build REL-1696
-# @script-version 1.2.10
+# @script-version 1.2.11
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.10
+  version: 1.2.11
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -104,6 +104,9 @@ RandomDeathMessages:
 
     on server start:
       - inject rdm_init
+
+    on suicide command:
+    - determine <yaml[rdm_environment].read[SUICIDE]>
 
     on player death:
     - if <server.has_flag[failedLoad]>:

@@ -1,0 +1,24 @@
+# Placeholders used in here:
+# <[victim]> - The player that died.
+# <[killer]> - You know. The killer.
+# <[weapon]> - What the killer was holding, if not empty handed
+
+# When killed by someone with no weapons.
+FISTS:
+  - "<green><[victim]> <yellow>любезно принял смертельный удар от <red><[killer]><yellow>."
+  - "<red><[killer]> <yellow>конкретно прихлопнул своей ладошкой <green><[victim]><yellow>."
+  - "<red><[killer]> <yellow>разукрасил лицо <green><[victim]> <yellow>так сильно, что он даже умер."
+WEAPON:
+  - "<green><[victim]> <yellow>был убит <red><[killer]>, с помощью <blue><[weapon]><yellow>."
+  - "<red><[killer]> <yellow>вонзил <blue><[weapon]> в грудь <green><[victim]><yellow>."
+
+WOLF:
+  - "<red>Волк <yellow>прогрыз ногу <green><[victim]><yellow>."
+  - "<green><[victim]> <yellow>был уничтожен <red>волчарой<yellow>."
+  - "<green><[victim]> <yellow>стал жертвой <red>'хорошего мальчика'<yellow>."
+  - "<green><[victim]> <yellow>был съеден <red>волчарой<yellow>."
+
+# When killed with a bow.
+RANGED:
+  - "<yellow>HEADSHOT! <red><[killer]> <yellow>зарядил в шапку <green><[victim]><yellow>."
+  - "<green><[victim]> <yellow>словил стрелу от <&c><[killer]><yellow>."
