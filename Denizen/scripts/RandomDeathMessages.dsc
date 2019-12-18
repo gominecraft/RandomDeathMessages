@@ -130,7 +130,7 @@ RandomDeathMessages:
 
     - define victim:<player.name>
 
-    - if <player.flag[suicide]>:
+    - if <player.flag[suicide]> || <context.damager> == <player>:
       - determine <yaml[rdm_env].read[SUICIDE].random.parsed>
 
     # Begin PVP
