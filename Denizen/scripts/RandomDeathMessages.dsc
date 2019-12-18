@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/6
 # @denizen-build REL-1696
-# @script-version 1.2.13
+# @script-version 1.2.14
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.13
+  version: 1.2.14
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -133,7 +133,7 @@ RandomDeathMessages:
     - define victim:<player.name>
 
     # This is inelegant, but how it has to work, it seems.
-    - if <player.flag[suicide]> || <context.damager> == <player>:
+    - if <player.flag[suicide]||false> || <context.damager> == <player>:
       - determine <yaml[rdm_env].read[SUICIDE].random.parsed>
 
     # Begin PVP
@@ -171,7 +171,7 @@ RandomDeathMessages:
     # End MythicMobs
 
     # Begin MC Mobs
-    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER]||false>:
+    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER|CREEPER]||false>:
       # If we don't have an item specified, default message.
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_typ> - (Regular MC Monster)"
@@ -180,8 +180,13 @@ RandomDeathMessages:
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 
+    # Catch TNT
+    - if <context.damager.entity_type> == PRIMED_TNT:
+      - determine <yaml[rdm_env].read[PRIMED_TNT].random.parsed>
+
     - if <yaml[rdm_env].read[<context.cause>]||null> == null:
       - announce to_console "[RandomDeathMessages] No key found for <context.cause> - (Environment - possibly)"
       - determine <context.message>
+    
     - determine <yaml[rdm_env].read[<context.cause>].random.parsed>
     # End Environment
