@@ -107,6 +107,7 @@ RandomDeathMessages:
 
     on suicide command:
     - determine <yaml[rdm_environment].read[SUICIDE]>
+    - stop
 
     on player death:
     - if <server.has_flag[failedLoad]>:
