@@ -1,0 +1,27 @@
+#
+# Placeholders used in here:
+# <[victim]>
+#
+# Color Tags:
+# <dark_red>
+# <red>
+# <gold>
+# <yellow>
+# <dark_green>
+# <green>
+# <aqua>
+# <dark_aqua>
+# <blue>
+# <dark_blue>
+# <light_purple>
+# <dark_purple>
+# <white>
+# <gray>
+# <dark_gray>
+# <black>
+
+AngrySludge:
+  - "<green><[victim]> <yellow>died. <blue>I am an example message."
+SkeletalKnight:
+SkeletonKing:
+SkeletalMinion:

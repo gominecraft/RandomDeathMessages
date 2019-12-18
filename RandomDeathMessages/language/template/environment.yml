@@ -1,0 +1,44 @@
+#
+# Placeholders used in here:
+# <[victim]>
+#
+# Color Tags:
+# <dark_red>
+# <red>
+# <gold>
+# <yellow>
+# <dark_green>
+# <green>
+# <aqua>
+# <dark_aqua>
+# <blue>
+# <dark_blue>
+# <light_purple>
+# <dark_purple>
+# <white>
+# <gray>
+# <dark_gray>
+# <black>
+
+# Contact = cactus
+CONTACT:
+  - "<green><[victim]> <yellow>died. <blue>I am an example message."
+CRUSHED:
+DROWNING:
+FALL:
+# falling_block = Anvil
+FALLING_BLOCK:
+FIRE:
+# fly_into_wall = Elytra flight into a vertical surface
+FLY_INTO_WALL:
+HOT_FLOOR:
+LAVA:
+LIGHTNING:
+POISON:
+PRIMED_TNT:
+# Projectile = most likely a dispenser-fired arrow
+PROJECTILE:
+STARVATION:
+SUFFOCATION:
+SUICIDE:
+VOID:

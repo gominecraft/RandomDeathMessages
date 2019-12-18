@@ -1,0 +1,35 @@
+# Placeholders used in here:
+# <[victim]> - The player that died.
+# <[killer]> - You know. The killer.
+# <[weapon]> - What the killer was holding, if not empty handed
+#
+# Color Tags:
+# <dark_red>
+# <red>
+# <gold>
+# <yellow>
+# <dark_green>
+# <green>
+# <aqua>
+# <dark_aqua>
+# <blue>
+# <dark_blue>
+# <light_purple>
+# <dark_purple>
+# <white>
+# <gray>
+# <dark_gray>
+# <black>
+
+# When killed by someone with no weapons.
+FISTS:
+- "<green><[victim]> <yellow>died. <[killer]> killed them with <light_green><[weapon]><blue>I am an example message."
+
+# Something in hand
+WEAPON:
+
+# When killed by a tamed wolf. Can also contain <[killer]>
+WOLF:
+
+# When killed with a bow.
+RANGED:

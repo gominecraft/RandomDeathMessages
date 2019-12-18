@@ -1,0 +1,57 @@
+#
+# Placeholders used in here:
+# <[victim]>
+#
+# Color Tags:
+# <dark_red>
+# <red>
+# <gold>
+# <yellow>
+# <dark_green>
+# <green>
+# <aqua>
+# <dark_aqua>
+# <blue>
+# <dark_blue>
+# <light_purple>
+# <dark_purple>
+# <white>
+# <gray>
+# <dark_gray>
+# <black>
+
+
+
+BEE:
+  - "<green><[victim]> <yellow>died. <blue>I am an example message."
+BLAZE:
+CAVE_SPIDER:
+CREEPER:
+DROWNED:
+ELDER_GUARDIAN:
+ENDER_DRAGON:
+ENDERMAN:
+ENDERMITE:
+
+# Evoker_Fangs = Evoker
+EVOKER_FANGS:
+GHAST:
+GUARDIAN:
+HUSK:
+IRON_GOLEM:
+LLAMA:
+MAGMA_CUBE:
+PIG_ZOMBIE:
+PILLAGER:
+POLAR_BEAR:
+SKELETON:
+SHULKER:
+SILVERFISH:
+SLIME:
+SPIDER:
+VEX:
+WITCH:
+WITHER_SKELETON:
+WOLF:
+ZOMBIE:
+ZOMBIE_VILLAGER:

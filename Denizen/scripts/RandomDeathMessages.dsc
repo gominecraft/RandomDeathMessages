@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/6
 # @denizen-build REL-1696
-# @script-version 1.2.12
+# @script-version 1.2.13
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.12
+  version: 1.2.13
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -125,11 +125,14 @@ RandomDeathMessages:
       - flag player suicide duration:1t
 
     on player death:
+    # If it failed to load, we just show the default MC message.
     - if <server.has_flag[failedLoad]>:
       - stop
 
+    # Set our victim placeholder for the yaml files.
     - define victim:<player.name>
 
+    # This is inelegant, but how it has to work, it seems.
     - if <player.flag[suicide]> || <context.damager> == <player>:
       - determine <yaml[rdm_env].read[SUICIDE].random.parsed>
 
