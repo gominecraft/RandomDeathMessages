@@ -11,3 +11,118 @@ SkeletonKing:
   - "<green><[victim]> <yellow>was slain by the mighty <red>Skeleton King<yellow>!"
 SkeletalMinion:
   - "<green><[victim]> <yellow>was killed by the <red>Skeleton King<yellow>'s <gold>Skeletal Minion<yellow>.'"
+
+
+# Vanilla mobs, in case you override them.
+
+#
+# Placeholders used in here:
+# <[victim]>
+#
+
+BEE:
+  - "<green><[victim]> <yellow>got stung to death by a mildly upset <red>Bee<yellow>."
+  - "<green><[victim]> <yellow>messed with the wrong hive."
+BLAZE:
+  - "<green><[victim]> <yellow>was set ablaze by a <red>Blaze"
+  - "<green><[victim]> <yellow>is smokin'. Needs to avoid the <red>Blaze<yellow>."
+  - "<green><[victim]> <yellow>got flamed by a <red>Blaze<yellow>!"
+CAVE_SPIDER:
+  - "<green><[victim]> <yellow>dug deep. Got turned into a snack by a <red>Cave Spider<yellow>."
+  - "<yellow>The <red>Cave Spiders <yellow>are going to eat well tonight thanks to <green><[victim]><yellow>."
+CREEPER:
+  - "<green><[victim]> <yellow>got blown to bits by a <red>Creeper<yellow>!"
+  - "<green><[victim]> <yellow>was blown up by a <red>Creeper"
+  - "<yellow>All the <red>Creeper <yellow>wanted was a hug. <green><[victim]> <yellow>foolishly obliged."
+  - "<green><[victim]> <yellow>discovered that '<red>TsssSSsSSs<yellow>' ends in an explosion."
+  - "<green><[victim]> <yellow>had a run-in with a <red>Creeper<yellow>. They are now here. And there.. oh, and over there."
+DROWNED:
+  - "<green><[victim]> <yellow>met the <red>Drowned<yellow>. First impression didn't go well."
+  - "<green><[victim]> <yellow>got dragged down by the <red>Drowned<yellow>."
+ELDER_GUARDIAN:
+  - "<green><[victim]> <yellow>was put down by an <red>Elder Guardian<yellow>."
+  - "<yellow>Eyelasers hurt, <green><[victim]><yellow>. Stay away from the <red>Elder Guardian<yellow>."
+ENDER_DRAGON:
+  - "<green><[victim]> <yellow>met the <red>Lord of the End<yellow>. The End."
+ENDERMAN:
+  - "<yellow>It's not nice to stare, <green><[victim]><yellow>, especially at <red>Endermen<yellow>."
+ENDERMITE:
+  - "<yellow>A nasty little <red>Endermite <yellow>nibbled <green><[victim]><yellow>'s feet off.'"
+EVOKER_FANGS:
+  - "<green><[victim]> was put to death by an <red>Evoker<yellow>."
+GHAST:
+  - "<green><[victim]> <yellow>died from <red>Ghast <yellow>exposure."
+  - "<yellow>A ghastly <red>Ghast <yellow>left <green><[victim]> <yellow>aghast."
+  - "<green><[victim]> <yellow>got <red>fireball'd <yellow>by a <red>Ghast<yellow>!"
+  - "<green><[victim]> <yellow>got gibbed by a <red>Ghast<yellow>!"
+  - "<green><[victim]> <yellow>has been owned by the all-powerful <red>Ghast<yellow>!"
+GUARDIAN:
+  - "<green><[victim]> <yellow>was put down by an <red>Guardian<yellow>."
+  - "<yellow>Eyelasers hurt, <green><[victim]><yellow>. Stay away from the <red>Guardian<yellow>."
+HUSK:
+  - "<yellow>A husky <red>Husk <yellow>husked <green><[victim]><yellow>."
+IRON_GOLEM:
+  - "<green><[victim]> <yellow>broke the village rules and got clobbered by a <red>Golem<yellow>."
+  - "<green><[victim]> <yellow>tangled with a <red>Golem <yellow>and got smashed to bits."
+LLAMA:
+  - "<green><[victim]> <yellow>discovered that a <red>Llama <yellow>can spit violently."
+MAGMA_CUBE:
+  - "<green><[victim]> <yellow>was slimed by a <red>Magma Cube<yellow>."
+  - "<yellow>A happy, bouncing <red>Lava Blob<yellow> got up close and personal with <green><[victim]><yellow>."
+PIG_ZOMBIE:
+  - "<green><[victim]> <yellow>angered a <red>Ham Shambler<yellow>. It didn't end it their favor."
+  - "<green><[victim]> <yellow>did not respect the <red>Pig Zombie<yellow>."
+PILLAGER:
+  - "<green><[victim]> <yellow>got pillaged by a <red>Pillager<yellow>."
+  - "<yellow>A pillage-y <red>Pillager <yellow>pillaged <green><[victim]><yellow>."
+POLAR_BEAR:
+  - "<green><[victim]> <yellow>got mauled by a <red>Polar Bear<yellow>."
+SKELETON:
+  - "<yellow>A <red>Skeleton <yellow>sniped <green><[victim]><yellow>."
+  - "<green><[victim]> <yellow>got ventilated by a <red>Skeleton<yellow>!"
+  - "<yellow>A <red>Skeleton <yellow>had a bone to pick with <green><[victim]><yellow>."
+  - "<green><[victim]> <yellow>was beaten by a pile of bones holding a bow. Pathetic."
+SHULKER:
+  - "<green><[victim]> <yellow>was put down by a <red>Shulker<yellow>."
+  - "<green><[victim]> <yellow>got tossed around by a <red>Shulker<yellow>."
+SILVERFISH:
+  - "<green><[victim]> <yellow>was nibbled to death by a <red>Silverfish<yellow>."
+  - "<green><[victim]> <yellow>got their ankles nibbled off by a <red>SilverFish<yellow>."
+SLIME:
+  - "<green><[victim]> <yellow>was slimed by a <red>Slime<yellow>."
+  - "<green><[victim]> <yellow>was removed from the gene-pool by a <red>Slime<yellow>!"
+  - "<green><[victim]> <yellow>got <red>Slimed<yellow>!"
+  - "<green><[victim]> <yellow>discovered that <red>Slime <yellow>is not something you wear."
+  - "<green><[victim]> <yellow>got too close to the <red>Slime<yellow>!"
+  - "<green><[victim]> <yellow>was absorbed by the <red>Slime<yellow>!"
+SPIDER:
+  - "<green><[victim]> <yellow>got munched on by a <red>Spider<yellow>."
+  - "<green><[victim]> <yellow>fell victim to a giant, hungry <red>Spider<yellow>!"
+  - "<green><[victim]> <yellow>just had a nasty encounter with a not so itsy bitsy <red>Spider<yellow>."
+  - "<green><[victim]> <yellow>had a run in with a giant <red>Spider<yellow>... it didn't go well."
+VEX:
+  - "<yellow>An <red>Evoker<yellow>'s tiny little friend killed <green><[victim]><yellow>."
+  - "<green><[victim]> <yellow>was <red>Vexed <yellow>by an <red>Evoker<yellow>'s pet."
+WITCH:
+  - "<green><[victim]> <yellow>is no match for <red>witchcraft<yellow>."
+  - "<green><[victim]> <yellow>got hexed by an upset <red>Witch<yellow>!"
+WITHER_SKELETON:
+  - "<green><[victim]> <yellow>was destroyed by a <red>Wither<yellow>!"
+  - "<green><[victim]> <yellow>withered under the onslaught of a <red>Wither<yellow>."
+WOLF:
+  - "<green><[victim]> <yellow>got shredded by a &cWolf<yellow>."
+  - "<green><[victim]> <yellow>got slaughtered by a &cWolf<yellow>!"
+  - "<green><[victim]> <yellow>became lunch for a hungry &cWolf<yellow>!"
+  - "<green><[victim]> <yellow>received a love bite from a friendly &cWolf<yellow>."
+  - "<green><[victim]> <yellow>got their ankles chewed off by a &cWolf<yellow>!"
+  - "<green><[victim]> <yellow>got ripped to shreds by a &cWolf<yellow>!"
+ZOMBIE:
+  - "<green><[victim]> <yellow>needs to plant more vegetation against the <red>Zombie <yellow>invasion."
+  - "<green><[victim]> <yellow>got their brains munched on by a <red>Zombie<yellow>."
+  - "<green><[victim]> <yellow>became dinner for a hungry <red>Zombie<yellow>!"
+  - "<green><[victim]> <yellow>is now missing <red>bbrrraaaaiinnnnsss<yellow>."
+  - "<green><[victim]> <yellow>just gave their brain to a <red>Zombie<yellow>."
+  - "<green><[victim]> <yellow>donated their brain to science. Or maybe it was a <red>Zombie<yellow>."
+ZOMBIE_VILLAGER:
+  - "<green><[victim]> <yellow>got debrained by a <red>Zombie Villager<yellow>!"
+  - "<green><[victim]> <yellow>discovered the raised dead like brain meats."

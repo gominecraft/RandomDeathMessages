@@ -8,9 +8,9 @@
 # +----------------------
 #
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
-# @date 2019/12/6
+# @date 2019/12/19
 # @denizen-build REL-1696
-# @script-version 1.2.14
+# @script-version 1.2.15
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.14
+  version: 1.2.15
 
   # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
@@ -133,7 +133,7 @@ RandomDeathMessages:
     - define victim:<player.name>
 
     # This is inelegant, but how it has to work, it seems.
-    - if <player.flag[suicide]||false> || <context.damager> == <player>:
+    - if <player.flag[suicide]||false> || <context.damager||null> == <player>:
       - determine <yaml[rdm_env].read[SUICIDE].random.parsed>
 
     # Begin PVP
@@ -181,7 +181,7 @@ RandomDeathMessages:
     # End MC Mobs
 
     # Catch TNT
-    - if <context.damager.entity_type> == PRIMED_TNT:
+    - if <context.damager.entity_type||null> == PRIMED_TNT:
       - determine <yaml[rdm_env].read[PRIMED_TNT].random.parsed>
 
     - if <yaml[rdm_env].read[<context.cause>]||null> == null:
