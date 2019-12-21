@@ -27,7 +27,6 @@ rdm_version:
   type: yaml data
   version: 1.2.15
 
-  # Yes, this is a noisy mess. Will clean up later.
 rdm_init:
   type: task
   debug: false
@@ -142,44 +141,37 @@ RandomDeathMessages:
         - define killer:<context.damager.owner.name>
         - determine <yaml[rdm_pvp].read[WOLF].random.parsed>
 
-      # Set a useful var, only used in the PVP context.
+      # Set our lovely placeholders
       - define killer:<context.damager.name>
       - define weapon:<context.damager.item_in_hand.formatted>
 
-      # Did we get hit by an arrow?
       - if <context.cause> == PROJECTILE:
         - determine <yaml[rdm_pvp].read[RANGED].random.parsed>
 
-      # Melee, empty hand
       - if <context.damager.entity_type> == PLAYER:
         - if <[weapon]> == nothing:
           - determine <yaml[rdm_pvp].read[FISTS].random.parsed>
 
-        # Melee, something in-hand.
         - determine <yaml[rdm_pvp].read[WEAPON].random.parsed>
-    # If nothing in here fires, it was an untamed wolf that muirdered the player.
     # End PVP
 
     # Begin MythicMobs
     - if <server.list_plugins.contains_all[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
-      # If we don't have an item specified, default message.
       - if <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.mythicmob.internal_name> - (Mythic Mob)"
         - determine <context.message>
-
       - determine <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>].random.parsed>
     # End MythicMobs
 
     # Begin MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER|CREEPER]||false>:
-      # If we don't have an item specified, default message.
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_typ> - (Regular MC Monster)"
         - determine <context.message>
-
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 
+    # Begin "Environment"
     # Catch TNT
     - if <context.damager.entity_type||null> == PRIMED_TNT:
       - determine <yaml[rdm_env].read[PRIMED_TNT].random.parsed>
