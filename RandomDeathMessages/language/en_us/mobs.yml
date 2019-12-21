@@ -52,6 +52,9 @@ LLAMA:
 MAGMA_CUBE:
   - "<green><[victim]> <yellow>was slimed by a <red>Magma Cube<yellow>."
   - "<yellow>A happy, bouncing <red>Lava Blob<yellow> got up close and personal with <green><[victim]><yellow>."
+PHANTOM:
+  - "<green><[player]> <yellow>should get more sleep."
+  - "<green><[player]> <yellow>seems to have insomnia. <red>Phantoms <yellow>feed on that!'"
 PIG_ZOMBIE:
   - "<green><[victim]> <yellow>angered a <red>Ham Shambler<yellow>. It didn't end it their favor."
   - "<green><[victim]> <yellow>did not respect the <red>Pig Zombie<yellow>."

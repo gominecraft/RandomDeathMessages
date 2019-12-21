@@ -52,6 +52,8 @@ LLAMA:
 MAGMA_CUBE:
   - "<green><[victim]> <yellow>был покрыт <red>магматическим кубом<yellow>."
   - "<yellow>Счастливый, прыгающий <red>лавовый куб<yellow> подобрался слишком близко и обжигающе прилип к <green><[victim]><yellow>."
+PHANTOM:
+  - "<green>No translation found for Phantoms"
 PIG_ZOMBIE:
   - "<green><[victim]> <yellow>разозлил конвой <red>Свино-зомби<yellow>."
   - "<green><[victim]> <yellow>не уважал <red>Свино-зомби<yellow> и получил по заслугам."

@@ -166,7 +166,7 @@ RandomDeathMessages:
     # Begin MC Mobs
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER|CREEPER]||false>:
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
-        - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_typ> - (Regular MC Monster)"
+        - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_type> - (Regular MC Monster)"
         - determine <context.message>
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
