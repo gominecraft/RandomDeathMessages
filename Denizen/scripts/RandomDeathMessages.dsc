@@ -176,8 +176,8 @@ RandomDeathMessages:
     # End MC Mobs
 
     # Begin "Environment"
-    - if <context.damager||null> == FIRE_TICK || <context.damager||null> == FIRE:
-      - determine <yaml[rdm_env].read[FIRE].random.pased>
+    - if <context.cause||null> == FIRE_TICK || <context.cause||null> == FIRE:
+      - determine <yaml[rdm_env].read[FIRE].random.parsed>
 
     # Catch TNT
     - if <context.damager.entity_type||null> == PRIMED_TNT:
