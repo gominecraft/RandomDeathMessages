@@ -55,6 +55,8 @@ MAGMA_CUBE:
 PHANTOM:
   - "<green><[player]> <yellow>should get more sleep."
   - "<green><[player]> <yellow>seems to have insomnia. <red>Phantoms <yellow>feed on that!'"
+PANDA:
+  - "<green><[victim]> <yellow>got hugged by a happy <red>Panda<yellow>."
 PIG_ZOMBIE:
   - "<green><[victim]> <yellow>angered a <red>Ham Shambler<yellow>. It didn't end it their favor."
   - "<green><[victim]> <yellow>did not respect the <red>Pig Zombie<yellow>."
@@ -63,6 +65,8 @@ PILLAGER:
   - "<yellow>A pillage-y <red>Pillager <yellow>pillaged <green><[victim]><yellow>."
 POLAR_BEAR:
   - "<green><[victim]> <yellow>got mauled by a <red>Polar Bear<yellow>."
+RAVAGER:
+  - "<green><[victim]> <yellow> ws <red>Ravaged<yellow>."
 SKELETON:
   - "<yellow>A <red>Skeleton <yellow>sniped <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>got ventilated by a <red>Skeleton<yellow>!"

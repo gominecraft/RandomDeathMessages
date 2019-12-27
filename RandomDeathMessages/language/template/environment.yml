@@ -28,7 +28,10 @@ DROWNING:
 FALL:
 # falling_block = Anvil
 FALLING_BLOCK:
+
+# Also FIRE_TICK
 FIRE:
+
 # fly_into_wall = Elytra flight into a vertical surface
 FLY_INTO_WALL:
 HOT_FLOOR:

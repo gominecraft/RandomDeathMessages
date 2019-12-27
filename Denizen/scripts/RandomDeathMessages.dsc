@@ -8,9 +8,9 @@
 # +----------------------
 #
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
-# @date 2019/12/19
+# @date 2019/12/27
 # @denizen-build REL-1696
-# @script-version 1.2.16
+# @script-version 1.2.17
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 rdm_version:
   type: yaml data
-  version: 1.2.16
+  version: 1.2.17
 
 rdm_init:
   type: task
@@ -164,6 +164,10 @@ RandomDeathMessages:
     # End MythicMobs
 
     # Begin MC Mobs
+
+    - if <context.cause||null> == WITHER:
+      - determine <yaml[rdm_mobs].read[WITHER_SKELETON].random.parsed>
+
     - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any[SKELETON|PILLAGER|CREEPER]||false>:
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_type> - (Regular MC Monster)"
@@ -172,6 +176,9 @@ RandomDeathMessages:
     # End MC Mobs
 
     # Begin "Environment"
+    - if <context.damager||null> == FIRE_TICK || <context.damager||null> == FIRE:
+      - determine <yaml[rdm_env].read[FIRE].random.pased>
+
     # Catch TNT
     - if <context.damager.entity_type||null> == PRIMED_TNT:
       - determine <yaml[rdm_env].read[PRIMED_TNT].random.parsed>
