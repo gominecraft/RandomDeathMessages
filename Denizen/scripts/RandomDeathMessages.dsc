@@ -9,7 +9,7 @@
 #
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/27
-# @denizen-build REL-1696
+# @denizen-build REL-4511+
 # @script-version 1.2.17
 #
 # Usage:
@@ -23,11 +23,11 @@
 # ---- Don't edit below here unless you know what you're doing.
 # ---- I definitely don't know what I'm doing.
 
-rdm_version:
+RDMVersion:
   type: yaml data
   version: 1.2.17
 
-rdm_init:
+RDMInit:
   type: task
   debug: false
   script:
@@ -68,7 +68,7 @@ rdm_init:
     - announce to_console "[RandomDeathMessages] One or more config files failed to load. Please check your console log."
     - flag server failedLoad
 
-rdm_cmd:
+RDMCommand:
   type: command
   debug: false
   name: randomdeathmessages
@@ -93,7 +93,7 @@ rdm_cmd:
     - default:
       - narrate "<red>Unknown argument: <gold><context.args.get[1]>"
 
-rdm_suicide_cmd:
+RDMSuicideCommand:
   type: command
   debug: false
   name: suicide
@@ -109,10 +109,10 @@ RandomDeathMessages:
   debug: false
   events:
     on reload scripts:
-      - inject rdm_init
+      - inject RDMInit
 
     on server start:
-      - inject rdm_init
+      - inject RDMInit
 
     on suicide command:
       - flag player suicide duration:1t
@@ -141,7 +141,6 @@ RandomDeathMessages:
         - define killer:<context.damager.owner.name>
         - determine <yaml[rdm_pvp].read[WOLF].random.parsed>
 
-      # Set our lovely placeholders
       - define killer:<context.damager.name>
       - define weapon:<context.damager.item_in_hand.formatted>
 
