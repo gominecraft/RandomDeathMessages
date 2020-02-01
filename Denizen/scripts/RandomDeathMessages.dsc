@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: GoMinecraft#1421 )
 # @date 2019/12/27
 # @denizen-build REL-4511+
-# @script-version 1.2.17
+# @script-version 1.2.18
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,7 +25,7 @@
 
 RDMVersion:
   type: yaml data
-  version: 1.2.17
+  version: 1.2.18
 
 RDMInit:
   type: task
