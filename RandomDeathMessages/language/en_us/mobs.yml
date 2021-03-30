@@ -42,8 +42,12 @@ GHAST:
 GUARDIAN:
   - "<green><[victim]> <yellow>was put down by an <red>Guardian<yellow>."
   - "<yellow>Eyelasers hurt, <green><[victim]><yellow>. Stay away from the <red>Guardian<yellow>."
+HOGLIN:
+  - "<yellow>A <red>Hoglin <yellow>slaughtered <green><[victim]><yellow>."
 HUSK:
   - "<yellow>A husky <red>Husk <yellow>husked <green><[victim]><yellow>."
+ILLUSIONER:
+  - "<green><[victim]> <yellow>found themselves disillusioned."
 IRON_GOLEM:
   - "<green><[victim]> <yellow>broke the village rules and got clobbered by a <red>Golem<yellow>."
   - "<green><[victim]> <yellow>tangled with a <red>Golem <yellow>and got smashed to bits."
@@ -53,27 +57,33 @@ MAGMA_CUBE:
   - "<green><[victim]> <yellow>was slimed by a <red>Magma Cube<yellow>."
   - "<yellow>A happy, bouncing <red>Lava Blob<yellow> got up close and personal with <green><[victim]><yellow>."
 PHANTOM:
-  - "<green><[player]> <yellow>should get more sleep."
-  - "<green><[player]> <yellow>seems to have insomnia. <red>Phantoms <yellow>feed on that!'"
+  - "<green><[victim]> <yellow>should get more sleep."
+  - "<green><[victim]> <yellow>seems to have insomnia. <red>Phantoms <yellow>feed on that!'"
 PANDA:
   - "<green><[victim]> <yellow>got hugged by a happy <red>Panda<yellow>."
 PIG_ZOMBIE:
   - "<green><[victim]> <yellow>angered a <red>Ham Shambler<yellow>. It didn't end it their favor."
   - "<green><[victim]> <yellow>did not respect the <red>Pig Zombie<yellow>."
+PIGLIN:
+  - "<yellow>A <red>Piglin <yellow>introduced <green><[victim]> <yellow>to Death."
+PIGLIN_BRUTE:
+  - "<green><[victim]> <yellow>got brutalized by a <red>Piglin Brute<yellow>."
 PILLAGER:
   - "<green><[victim]> <yellow>got pillaged by a <red>Pillager<yellow>."
   - "<yellow>A pillage-y <red>Pillager <yellow>pillaged <green><[victim]><yellow>."
+PHANTOM:
+  - "<"
 POLAR_BEAR:
   - "<green><[victim]> <yellow>got mauled by a <red>Polar Bear<yellow>."
 RAVAGER:
-  - "<green><[victim]> <yellow> ws <red>Ravaged<yellow>."
+  - "<green><[victim]> <yellow>was <red>Ravaged<yellow>."
 SKELETON:
   - "<yellow>A <red>Skeleton <yellow>sniped <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>got ventilated by a <red>Skeleton<yellow>!"
   - "<yellow>A <red>Skeleton <yellow>had a bone to pick with <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>was beaten by a pile of bones holding a bow. Pathetic."
 SKELETON_HORSE:
-  - "<"
+  - "<green><[victim]> <yellow>got trampled by a dead horse."
 SHULKER:
   - "<green><[victim]> <yellow>was put down by a <red>Shulker<yellow>."
   - "<green><[victim]> <yellow>got tossed around by a <red>Shulker<yellow>."
@@ -100,6 +110,8 @@ STRAY:
 VEX:
   - "<yellow>An <red>Evoker<yellow>'s tiny little friend killed <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>was <red>Vexed <yellow>by an <red>Evoker<yellow>'s pet."
+VINDICATOR:
+  - "<yellow>A Vindicator was vindicated by killing <green><[victim]><yellow>."
 WITCH:
   - "<green><[victim]> <yellow>is no match for <red>witchcraft<yellow>."
   - "<green><[victim]> <yellow>got hexed by an upset <red>Witch<yellow>!"
@@ -113,6 +125,8 @@ WOLF:
   - "<green><[victim]> <yellow>received a love bite from a friendly &cWolf<yellow>."
   - "<green><[victim]> <yellow>got their ankles chewed off by a &cWolf<yellow>!"
   - "<green><[victim]> <yellow>got ripped to shreds by a &cWolf<yellow>!"
+ZOGLIN:
+  - "<green><[victim]> <yellow>was disemboweled by a <red>Zoglin<yellow>!"
 ZOMBIE:
   - "<green><[victim]> <yellow>needs to plant more vegetation against the <red>Zombie <yellow>invasion."
   - "<green><[victim]> <yellow>got their brains munched on by a <red>Zombie<yellow>."
@@ -123,3 +137,5 @@ ZOMBIE:
 ZOMBIE_VILLAGER:
   - "<green><[victim]> <yellow>got debrained by a <red>Zombie Villager<yellow>!"
   - "<green><[victim]> <yellow>discovered the raised dead like brain meats."
+ZOMBIFIED_PIGLIN:
+  - "<green><[victim]> <yellow>had their brain chomped by a <red>Zombified Piglin<yellow>."
