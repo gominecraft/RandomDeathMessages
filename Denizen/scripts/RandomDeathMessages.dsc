@@ -7,10 +7,10 @@
 # |
 # +----------------------
 #
-# @author GoMinecraft ( Discord: GoMinecraft#1421 )
+# @author GoMinecraft ( Discord: BrainFailures#1421 )
 # @date 2019/12/27
-# @denizen-build REL-4511+
-# @script-version 1.2.18
+# @denizen-build ALWAYS USE THE LATEST @ https://ci.citizensnpcs.co/job/Denizen/
+# @script-version 1.3.0
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -24,8 +24,8 @@
 # ---- I definitely don't know what I'm doing.
 
 RDMVersion:
-  type: yaml data
-  version: 1.2.18
+  type: data
+  version: 1.3.0
 
 RDMInit:
   type: task
@@ -61,7 +61,7 @@ RDMInit:
   - else:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
-  - if <yaml.list.contains_all[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
+  - if <yaml.list.contains_all_text[rdm_config|rdm_pvp|rdm_mobs|rdm_env|rdm_mythicmobs]>:
     - announce to_console "[RandomDeathMessages] Loaded all config files successfully. This does not mean there were no syntax errors."
     - flag server failedLoad:!
   - else:
@@ -86,7 +86,7 @@ RDMCommand:
   script:
   - choose <context.args.get[1]||version>:
     - case version:
-      - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].yaml_key[version]>"
+      - narrate "<red>RandomDeathMessages <green>v<script[rdm_version].data_key[version]>"
     - case reload:
       - inject rdm_init
       - narrate "<green>RandomDeathMessages has been reloaded."
@@ -96,6 +96,8 @@ RDMCommand:
 RDMSuicideCommand:
   type: command
   debug: false
+  description: Suicide command.
+  usage: /suicide
   name: suicide
   aliases:
   - dsuicide
@@ -155,7 +157,7 @@ RandomDeathMessages:
     # End PVP
 
     # Begin MythicMobs
-    - if <server.list_plugins.contains_all[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
+    - if <server.plugins.contains_all_text[Depenizen|MythicMobs]> && <context.damager.is_mythicmob||false>:
       - if <yaml[rdm_mythicmobs].read[<context.damager.mythicmob.internal_name>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.mythicmob.internal_name> - (Mythic Mob)"
         - determine <context.message>
@@ -185,6 +187,6 @@ RandomDeathMessages:
     - if <yaml[rdm_env].read[<context.cause>]||null> == null:
       - announce to_console "[RandomDeathMessages] No key found for <context.cause> - (Environment - possibly)"
       - determine <context.message>
-    
+
     - determine <yaml[rdm_env].read[<context.cause>].random.parsed>
     # End Environment
