@@ -35,7 +35,7 @@ RDMInit:
     - ~yaml load:../RandomDeathMessages/config.yml id:rdm_config
     - announce to_console "[RandomDeathMessages] Loaded config.yml"
   - else:
-    - announce to_console "Unable to load plugins/RandomDeathMessages/config.yml"
+    - announce to_console "Unables to load plugins/RandomDeathMessages/config.yml"
 
   - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml id:rdm_mobs
