@@ -14,13 +14,13 @@ If you are using [MythicMobs](https://www.mythicmobs.net/index.php?pages/downloa
 ## Installation
 ... (of RandomDeathMessages, not the above requirements - that's your problem!)
 
-* Download [RandomDeathMessages](https://gominecraft.com/files/RandomDeathMessages.zip)
+* Download [RandomDeathMessages](https://www.spigotmc.org/resources/random-death-messages.73034/)
 * Unpack the contents directly into **plugins/**
 
 If the server is already running, simply execute this in-game:
 
 ~~~
-/ex reload scripts
+/ex reload
 ~~~
 
 Otherwise, start the server up.
