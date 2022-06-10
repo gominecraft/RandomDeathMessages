@@ -10,4 +10,4 @@ jobs:
       with:
         type: 'zip'
         filename: 'RandomDeathMessages.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig README'
+        exclusions: '*.git* /*node_modules/* .editorconfig README.md'
