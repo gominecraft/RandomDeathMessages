@@ -169,7 +169,7 @@ RandomDeathMessages:
     - if <context.cause||null> == WITHER:
       - determine <yaml[rdm_mobs].read[WITHER_SKELETON].random.parsed>
 
-    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any_text[SKELETON|STRAY|PILLAGER|CREEPER]||false>:
+    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any_text[CREEPER|PILLAGER|SHULKER|SKELETON|STRAY|]||false>:
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_type> - (Regular MC Monster)"
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
