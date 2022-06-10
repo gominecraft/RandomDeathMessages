@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: BrainFailures#1421 )
 # @date 2019/12/27
 # @denizen-build ALWAYS USE THE LATEST @ https://ci.citizensnpcs.co/job/Denizen/
-# @script-version 1.3.5
+# @script-version 1.3.6
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -169,10 +169,9 @@ RandomDeathMessages:
     - if <context.cause||null> == WITHER:
       - determine <yaml[rdm_mobs].read[WITHER_SKELETON].random.parsed>
 
-    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any_text[SKELETON|PILLAGER|CREEPER]||false>:
+    - if <context.cause> == ENTITY_ATTACK || <context.damager.entity_type.contains_any_text[SKELETON|STRAY|PILLAGER|CREEPER]||false>:
       - if <yaml[rdm_mobs].read[<context.damager.entity_type>]||null> == null:
         - announce to_console "[RandomDeathMessages] No key found for <context.damager.entity_type> - (Regular MC Monster)"
-        - determine <context.message>
       - determine <yaml[rdm_mobs].read[<context.damager.entity_type>].random.parsed>
     # End MC Mobs
 

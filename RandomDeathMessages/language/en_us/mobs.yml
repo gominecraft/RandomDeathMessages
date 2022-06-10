@@ -103,9 +103,9 @@ SPIDER:
   - "<green><[victim]> <yellow>just had a nasty encounter with a not so itsy bitsy <red>Spider<yellow>."
   - "<green><[victim]> <yellow>had a run in with a giant <red>Spider<yellow>... it didn't go well."
 STRAY:
-  - "<yellow>A <red>Skeleton <yellow>sniped <green><[victim]><yellow>."
-  - "<green><[victim]> <yellow>got ventilated by a <red>Skeleton<yellow>!"
-  - "<yellow>A <red>Skeleton <yellow>had a bone to pick with <green><[victim]><yellow>."
+  - "<yellow>A <red>Stray <yellow>sniped <green><[victim]><yellow>."
+  - "<green><[victim]> <Red>Strayed <yellow>into the wrong area<yellow>!"
+  - "<yellow>A <red>Stray <yellow>had a bone to pick with <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>was beaten by a pile of bones holding a bow. Pathetic."
 VEX:
   - "<yellow>An <red>Evoker<yellow>'s tiny little friend killed <green><[victim]><yellow>."
