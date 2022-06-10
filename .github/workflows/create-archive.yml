@@ -12,9 +12,9 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@master
     - name: 'Archive Release'
-      run: zip -r release.zip * -x *.git* README.md
+      run: zip -r RandomDeathMessages.zip * -x *.git* README.md
     - name: 'Distribute Archive'
       uses: ncipollo/release-action@v1
       with:
-        artifacts: 'release.zip'
+        artifacts: 'RandomDeathMessages.zip'
         token: ${{ secrets.GITHUB_TOKEN }}
