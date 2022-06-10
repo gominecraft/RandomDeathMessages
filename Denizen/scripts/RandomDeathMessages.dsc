@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: BrainFailures#1421 )
 # @date 2019/12/27
 # @denizen-build ALWAYS USE THE LATEST @ https://ci.citizensnpcs.co/job/Denizen/
-# @script-version 1.3.6
+# @script-version 1.3.7
 #
 # Usage:
 # /rdm (version) - Shows the version
