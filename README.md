@@ -11,7 +11,7 @@ Denizen script to replace death messages with random, saltier messages.
 
 If you are using [MythicMobs](https://www.mythicmobs.net/index.php?pages/download/), you also need [Depenizen](https://ci.citizensnpcs.co/job/Depenizen/). You should probably get Depenizen anyway.
 
-## Installation:
+## Installation
 ... (of RandomDeathMessages, not the above requirements - that's your problem!)
 
 * Download [RandomDeathMessages](https://www.spigotmc.org/resources/random-death-messages.73034/)
@@ -27,7 +27,7 @@ Otherwise, start the server up.
 
 That's it, You're done.
 
-## Configuration:
+## Configuration
 
 You may modify the yaml files under **plugins/RandomDeathMessages/language/en_us/** at will. The format should be fairly obvious.
 
