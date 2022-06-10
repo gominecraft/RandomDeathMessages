@@ -11,9 +11,3 @@ jobs:
         type: 'zip'
         filename: 'RandomDeathMessages.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig README'
-
-- name: Upload Release
-  uses: ncipollo/release-action@v1
-  with:
-    artifacts: "RandomDeathMessages.zip"
-    token: ${{ secrets.GITHUB_TOKEN }}
