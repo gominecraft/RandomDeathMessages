@@ -9,5 +9,5 @@ jobs:
       uses: thedoctor0/zip-release@main
       with:
         type: 'zip'
-        filename: 'release/RandomDeathMessages.zip'
+        filename: 'RandomDeathMessages.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig README'
