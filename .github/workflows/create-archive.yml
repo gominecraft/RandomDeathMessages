@@ -1,18 +1,21 @@
-name: Create Archive
+name: Create Release
 on: [push]
+defaults:
+  run:
+    shell: bash
+    working-directory: RandomDeathMessages
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+    name: 'Create Release'
     steps:
-    - uses: actions/checkout@master
-    - name: Archive Release
-      uses: thedoctor0/zip-release@main
-      with:
-        type: 'zip'
-        filename: 'RandomDeathMessages.zip'
-        exclusions: '*.git* .editorconfig README.md'
-    - name: Upload Release
+    - name: 'Checkout'
+      uses: actions/checkout@master
+    - name: 'Archive Release'
+      run: zip -r release.zip * -x *.git* README.md
+    - name: 'Distribute Archive'
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "RandomDeathMessages.zip"
+        artifacts: 'release.zip'
+        bodyFile: '../README.md'
         token: ${{ secrets.GITHUB_TOKEN }}
