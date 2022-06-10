@@ -3,7 +3,7 @@ on: [push]
 defaults:
   run:
     shell: bash
-    working-directory: RandomDeathMessages
+    working-directory: .
 jobs:
   release:
     runs-on: ubuntu-latest
