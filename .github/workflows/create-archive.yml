@@ -16,5 +16,6 @@ jobs:
     - name: 'Distribute Archive'
       uses: ncipollo/release-action@v1
       with:
+        artifactErrorsFailBuild: true
         artifacts: 'RandomDeathMessages.zip'
         token: ${{ secrets.GITHUB_TOKEN }}
