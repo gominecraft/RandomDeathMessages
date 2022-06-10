@@ -1,5 +1,5 @@
 name: Create Release
-on: [push]
+on: [create]
 defaults:
   run:
     shell: bash
