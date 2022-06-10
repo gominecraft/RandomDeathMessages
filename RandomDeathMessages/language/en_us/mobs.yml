@@ -111,7 +111,9 @@ VEX:
   - "<yellow>An <red>Evoker<yellow>'s tiny little friend killed <green><[victim]><yellow>."
   - "<green><[victim]> <yellow>was <red>Vexed <yellow>by an <red>Evoker<yellow>'s pet."
 VINDICATOR:
-  - "<yellow>A Vindicator was vindicated by killing <green><[victim]><yellow>."
+  - "<yellow>A <red>Vindicator <yellow>was vindicated by killing <green><[victim]><yellow>."
+WARDEN:
+  - "<green><[victim]> <yellow>got murked by a <red>Warden<yellow>."
 WITCH:
   - "<green><[victim]> <yellow>is no match for <red>witchcraft<yellow>."
   - "<green><[victim]> <yellow>got hexed by an upset <red>Witch<yellow>!"
