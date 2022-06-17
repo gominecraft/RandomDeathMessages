@@ -165,7 +165,6 @@ RandomDeathMessages:
     # End MythicMobs
 
     # Begin MC Mobs
-
     - if <context.cause||null> == WITHER:
       - determine <yaml[rdm_mobs].read[WITHER_SKELETON].random.parsed>
 
