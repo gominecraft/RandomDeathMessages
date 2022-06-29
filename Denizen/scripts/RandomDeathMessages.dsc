@@ -10,7 +10,7 @@
 # @author GoMinecraft ( Discord: BrainFailures#1421 )
 # @date 2019/12/27
 # @denizen-build ALWAYS USE THE LATEST @ https://ci.citizensnpcs.co/job/Denizen/
-# @script-version 1.3.7
+# @script-version 1.3.8
 #
 # Usage:
 # /rdm (version) - Shows the version
@@ -25,37 +25,37 @@
 
 RDMVersion:
   type: data
-  version: 1.3.7
+  version: 1.3.8
 
 RDMInit:
   type: task
   debug: false
   script:
-  - if <server.has_file[../RandomDeathMessages/config.yml]>:
+  - if <util.has_file[../RandomDeathMessages/config.yml]>:
     - ~yaml load:../RandomDeathMessages/config.yml id:rdm_config
     - announce to_console "[RandomDeathMessages] Loaded config.yml"
   - else:
     - announce to_console "Unables to load plugins/RandomDeathMessages/config.yml"
 
-  - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml]>:
+  - if <util.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml id:rdm_mobs
     - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/mobs.yml"
   - else:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mobs.yml - File is missing!"
 
-  - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml]>:
+  - if <util.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml id:rdm_env
     - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/environment.yml"
   - else:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/environment.yml - File is missing!"
 
-  - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml]>:
+  - if <util.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml id:rdm_pvp
     - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/pvp.yml"
   - else:
     - announce to_console "Unable to load plugins/RandomDeathMessages/language/<yaml[rdm_config].read[language]>/pvp.yml - File is missing!"
 
-  - if <server.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml]>:
+  - if <util.has_file[../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml]>:
     - ~yaml load:../RandomDeathMessages/language/<yaml[rdm_config].read[language]>/mythicmobs.yml id:rdm_mythicmobs
     - announce to_console "[RandomDeathMessages] Loaded <yaml[rdm_config].read[language]>/mythicmobs.yml"
   - else:
